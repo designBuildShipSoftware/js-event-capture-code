@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Event Capture</title>
+</head>
+
+<body>
+  <div id = "bigBox" style="width:600px;height:400px;background-color:lightgreen;">Big box
+    <div id = "middleBox" style="width:400px;height:300px;background-color:lightblue;">Middle box
+      <div id = "smallBox" style="width:200px;height:200px;background-color:coral;">small box
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function logThis(e) {
+      console.log(this.id);
+     // e.stopPropagation();
+    }
+    
+    window.onload = function()
+    {
+      document.getElementById("bigBox").addEventListener("click", logThis, false);
+      document.getElementById("middleBox").addEventListener("click", logThis);
+      document.getElementById("smallBox").addEventListener("click", logThis, false);
+    }
+  
+  </script>
+</body>
+</html>
